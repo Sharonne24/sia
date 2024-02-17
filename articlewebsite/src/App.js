@@ -19,7 +19,7 @@ import Portfolio from './components/Portfolio';
 //           className="App-link"
 //           href="https://reactjs.org"
 //           target="_blank"
-//           rel="noopener noreferrer"
+//           rel=""
 //         >
 //           Learn React
 //         </a>
@@ -36,7 +36,7 @@ function App () {
 
         <main className="flex-grow">
           <Switch>
-            <Route path="/home" exact component={Home} />
+            <Route path="/home" component={Home} />
             <Route path="/blog" component={BlogDetail} />
             <Route path="/portfolio" component={Portfolio} />
           </Switch>
