@@ -1,32 +1,12 @@
 import './App.css';
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './components/Home';
 import BlogDetail from './components/BlogDetail';
 import Portfolio from './components/Portfolio';
 
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel=""
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
 
 function App () {
   return (
@@ -35,11 +15,11 @@ function App () {
         <Header />
 
         <main className="flex-grow">
-          <Switch>
-            <Route path="/home" component={Home} />
-            <Route path="/blog" component={BlogDetail} />
-            <Route path="/portfolio" component={Portfolio} />
-          </Switch>
+        <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/blog" element={<BlogDetail />} />
+            <Route path="/portfolio" element={<Portfolio />} />
+        </Routes>
         </main>
 
         <Footer />

@@ -8,7 +8,7 @@ const Header = () => {
         CECE
       </div>
       <nav className="flex space-x-4">
-        <Link to="/home" className="hover:underline">Home</Link>
+        <Link to="/" className="hover:underline">Home</Link>
         <Link to="/blog" className="hover:underline">Blog</Link>
         <Link to="/portfolio" className="hover:underline">Portfolio</Link>
       </nav>
