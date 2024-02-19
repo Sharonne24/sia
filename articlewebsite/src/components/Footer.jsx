@@ -9,4 +9,7 @@ const Footer = () => {
         {/* Blog Name */}
         <h2 className="text-lg font-bold">Your Blog Name</h2>
       </div>
+      {/*blog name*/}
       <p className="text-sm">@ Created by Your Name</p>
+      {/* About Us */}
+      <p className="text-sm mb-4">Brief about us...</p>
