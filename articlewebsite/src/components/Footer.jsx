@@ -13,3 +13,7 @@ const Footer = () => {
       <p className="text-sm">@ Created by Your Name</p>
       {/* About Us */}
       <p className="text-sm mb-4">Brief about us...</p>
+      {/* Contact Us Section */}
+      <div className="flex items-center">
+        {/* Email */}
+        <p className="mr-4">Email: your.email@example.com</p>
