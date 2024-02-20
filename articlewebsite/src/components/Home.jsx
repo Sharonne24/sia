@@ -23,5 +23,13 @@ const Home = ({ categories }) => {
     fetchBlogs();
   }, []);
 
-  
+  const topPostsBasedOnLikes = blogs
+    .slice() // Create a copy of blogs array to avoid modifying the original
+    .sort((a, b) => b.likes - a.likes) // Sort by likes in descending order
+    .slice(0, 5); // Get the top 5 posts
+
+    
+
+
+
 export default Home;
