@@ -11,11 +11,17 @@ const Home = ({ categories }) => {
     // For now, let's assume you have a function to fetch blogs
     const fetchBlogs = async () => {
       try {
-        const response = await fetch('your_api_endpoint_for_blogs');
+        const response = await fetch('api_endpoint_blogs');
         const data = await response.json();
         setBlogs(data);
       } catch (error) {
         console.error('Error fetching blogs:', error);
       }
     };
+
+    // Call the fetchBlogs function
+    fetchBlogs();
+  }, []);
+
+  
 export default Home;
