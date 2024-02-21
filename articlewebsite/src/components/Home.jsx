@@ -38,3 +38,14 @@ return (
         <BlogCard key={post.id} {...post} />
       ))}
     </section>
+
+    <section>
+        <h2>Categories</h2>
+        <ul>
+          {categories.map((category) => (
+            <li key={category}>
+              <Link to={`/category/${category}`}>{category}</Link>
+            </li>
+          ))}
+        </ul>
+      </section>
