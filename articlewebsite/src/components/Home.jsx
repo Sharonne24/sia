@@ -49,3 +49,15 @@ return (
           ))}
         </ul>
       </section>
+
+      <section>
+        <h2>All Blogs</h2>
+        {blogs.map((blog) => (
+          <BlogCard key={blog.id} {...blog} />
+        ))}
+      </section>
+    </div>
+  );
+};
+
+export default Home;
