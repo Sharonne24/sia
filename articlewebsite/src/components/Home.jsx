@@ -30,3 +30,11 @@ const Home = () => {
 // Get unique categories
 const categories = Array.from(new Set(blogs.flatMap((blog) => blog.categories)));
 
+return (
+  <div>
+    <section>
+      <h2>Top Posts</h2>
+      {topPostsBasedOnLikes.map((post) => (
+        <BlogCard key={post.id} {...post} />
+      ))}
+    </section>
