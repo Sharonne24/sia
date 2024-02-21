@@ -21,10 +21,12 @@ const Home = () => {
     fetchBlogs();
   }, []);
 
-  // Calculate top posts based on likes
+  // top posts based on likes
   const topPostsBasedOnLikes = blogs
     .slice() // Create a copy of blogs array to avoid modifying the original
     .sort((a, b) => b.likes - a.likes) // Sort by likes in descending order
-    .slice(0, 3); // Get the top 3 posts
+    .slice(0, 4); // Get the top 4 posts
 
-    
+// Get unique categories
+const categories = Array.from(new Set(blogs.flatMap((blog) => blog.categories)));
+
