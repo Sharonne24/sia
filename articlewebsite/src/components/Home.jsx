@@ -4,14 +4,15 @@ import BlogCard from './BlogCard';
 
 const Home = () => {
   const [blogs, setBlogs] = useState([]);
+
   useEffect(() => {
-    // Fetch blogs from the backend API
-    // For simplicity, let's assume you have a function to fetch blogs
-    
+    // Fetch blogs from the backend API or database
+    // Replace 'fetchBlogsFromAPI' with your actual function
     const fetchBlogs = async () => {
       try {
-        // Fetch blogs from backend
-        const blogsData = await fetchBlogsFromAPI();
+        // Fetch blogs from the backend
+        const response = await fetch('https://your-api-endpoint.com/api/blogs');
+        const blogsData = await response.json();
         setBlogs(blogsData);
       } catch (error) {
         console.error('Error fetching blogs:', error);
@@ -21,26 +22,26 @@ const Home = () => {
     fetchBlogs();
   }, []);
 
-  // top posts based on likes
-  const topPostsBasedOnLikes = blogs
+  // Get top posts based on more likes and comments
+  const topPosts = blogs
     .slice() // Create a copy of blogs array to avoid modifying the original
-    .sort((a, b) => b.likes - a.likes) // Sort by likes in descending order
+    .sort((a, b) => (b.likes + b.comments) - (a.likes + a.comments)) // Sort by likes + comments
     .slice(0, 4); // Get the top 4 posts
 
-// Get unique categories
-const categories = Array.from(new Set(blogs.flatMap((blog) => blog.categories)));
+  // Get unique categories
+  const categories = Array.from(new Set(blogs.flatMap((blog) => blog.categories)));
 
-return (
-  <div>
-    <section>
-      <h2>Top Posts</h2>
-      {topPostsBasedOnLikes.map((post) => (
-        <BlogCard key={post.id} {...post} />
-      ))}
-    </section>
+  return (
+    <div>
+      <section>
+        <h3>Top posts</h3>
+        {topPosts.map((post) => (
+          <BlogCard key={post.id} {...post} />
+        ))}
+      </section>
 
-    <section>
-        <h2>Categories</h2>
+      <section>
+        <h3>Categories</h3>
         <ul>
           {categories.map((category) => (
             <li key={category}>
