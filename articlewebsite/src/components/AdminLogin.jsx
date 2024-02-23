@@ -15,3 +15,15 @@ const AdminLogin = () => {
         },
         body: JSON.stringify({ username, password }),
       });
+      if (response.ok) {
+        const { token } = await response.json();
+        // Store the token securely, such as in an HTTP-only cookie
+        // Set authentication context or state
+      } else {
+        setError('Invalid username or password');
+      }
+    } catch (error) {
+      console.error('Error during login:', error);
+      setError('An unexpected error occurred. Please try again.');
+    }
+  };
