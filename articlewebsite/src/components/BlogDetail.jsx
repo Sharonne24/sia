@@ -22,4 +22,16 @@ const BlogDetail = ({ title, content, date, likes, dislikes, comments }) => {
     // You can send an API request to add the comment to the backend
   };
 
+  return (
+    <div>
+      <h2>{title}</h2>
+      <p>Date Published: {date}</p>
+      <p>{content}</p>
+      
+      <div>
+        <button onClick={handleLike}>👍 {likeCount}</button>
+        <button onClick={handleDislike}>👎 {dislikeCount}</button>
+      </div>
+
+
 export default BlogDetail;
