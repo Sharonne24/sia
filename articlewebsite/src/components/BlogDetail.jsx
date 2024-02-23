@@ -1,13 +1,9 @@
-// BlogDetail.js
-import React from 'react';
+import React, { useState } from 'react';
 
-const BlogDetail = () => {
-  return (
-    <div>
-      <h2>BlogDetail</h2>
-      {/* Add your content here */}
-    </div>
-  );
-};
+const BlogDetail = ({ title, content, date, likes, dislikes, comments }) => {
+  const [likeCount, setLikeCount] = useState(likes);
+  const [dislikeCount, setDislikeCount] = useState(dislikes);
+  const [comment, setComment] = useState('');
+  const [blogComments, setBlogComments] = useState(comments);
 
 export default BlogDetail;
