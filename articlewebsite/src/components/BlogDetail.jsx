@@ -16,5 +16,10 @@ const BlogDetail = ({ title, content, date, likes, dislikes, comments }) => {
     // You can send an API request to update the dislikes count on the backend
   };
 
+  const handleComment = () => {
+    setBlogComments((prevComments) => [...prevComments, comment]);
+    setComment('');
+    // You can send an API request to add the comment to the backend
+  };
 
 export default BlogDetail;
