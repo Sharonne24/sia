@@ -33,5 +33,15 @@ const BlogDetail = ({ title, content, date, likes, dislikes, comments }) => {
         <button onClick={handleDislike}>👎 {dislikeCount}</button>
       </div>
 
+      <div>
+        <textarea
+          rows="4"
+          cols="50"
+          value={comment}
+          onChange={(e) => setComment(e.target.value)}
+          placeholder="Add your comment..."
+        />
+        <button onClick={handleComment}>Add Comment</button>
+      </div>
 
 export default BlogDetail;
