@@ -44,4 +44,16 @@ const BlogDetail = ({ title, content, date, likes, dislikes, comments }) => {
         <button onClick={handleComment}>Add Comment</button>
       </div>
 
+      <div>
+        <h3>Comments</h3>
+        <ul>
+          {blogComments.map((blogComment, index) => (
+            <li key={index}>{blogComment}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+};
+
 export default BlogDetail;
