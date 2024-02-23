@@ -17,3 +17,12 @@ export const AdminProvider = ({ children }) => {
         // Implement secure removal of the token
         setAdminToken(null);
       };
+
+      return (
+        <AdminContext.Provider value={{ adminToken, login, logout }}>
+          {children}
+        </AdminContext.Provider>
+      );
+    };
+
+    export default AdminContext;
