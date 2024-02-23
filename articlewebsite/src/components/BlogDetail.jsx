@@ -6,4 +6,9 @@ const BlogDetail = ({ title, content, date, likes, dislikes, comments }) => {
   const [comment, setComment] = useState('');
   const [blogComments, setBlogComments] = useState(comments);
 
+  const handleLike = () => {
+    setLikeCount((prevCount) => prevCount + 1);
+    // You can send an API request to update the likes count on the backend
+  };
+
 export default BlogDetail;
