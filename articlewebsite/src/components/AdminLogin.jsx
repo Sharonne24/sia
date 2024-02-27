@@ -1,31 +1,23 @@
 import React, { useState } from 'react';
-import { useAdminContext } from './AdminContext';
+import {supabase} from '../index'
+import { useNavigate } from 'react-router-dom';
 // Add any additional imports as needed, for example, styling or form handling libraries
 
 const AdminLogin = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const {login} = useAdminContext();
+  const navigate = useNavigate()
  
   const handleLogin = async () => {
     try {
       // Use HTTPS or a more secure method to send credentials
-      const response = await fetch('http://localhost:3001/api/admin/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ username, password }),
-      });
-      if (response.ok) {
-        const { token } = await response.json();
-        login(token);
-        // Store the token securely, such as in an HTTP-only cookie
-        // Set authentication context or state
-      } else {
-        setError('Invalid username or password');
-      }
+      const { data, error} = await supabase.auth.signInWithPassword({email: username, password});
+
+      if(error) throw new Error(error.message)
+
+        if(data) navigate('/dashboard')
+
     } catch (error) {
       console.error('Error during login:', error);
       setError('An unexpected error occurred. Please try again.');

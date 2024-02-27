@@ -8,6 +8,8 @@ import Footer from './components/Footer';
 import Home from './components/Home';
 import BlogDetail from './components/BlogDetail';
 import Portfolio from './components/Portfolio';
+import Dashboard from './components/Dashboard';
+import AdminLogin from './components/AdminLogin';
 
 
 function App () {
@@ -19,8 +21,10 @@ function App () {
         <main className="flex-grow">
         <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/login" element={<AdminLogin />} />
             <Route path="/blog" element={<BlogDetail />} />
             <Route path="/portfolio" element={<Portfolio />} />
+            <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
         </main>
 
