@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
+import { useAdminContext } from './AdminContext';
 // Add any additional imports as needed, for example, styling or form handling libraries
 
 const AdminLogin = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const {login} = useAdminContext();
+ 
   const handleLogin = async () => {
     try {
       // Use HTTPS or a more secure method to send credentials
-      const response = await fetch('https://your-api-endpoint.com/api/admin/login', {
+      const response = await fetch('http://localhost:3001/api/admin/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -17,6 +20,7 @@ const AdminLogin = () => {
       });
       if (response.ok) {
         const { token } = await response.json();
+        login(token);
         // Store the token securely, such as in an HTTP-only cookie
         // Set authentication context or state
       } else {
