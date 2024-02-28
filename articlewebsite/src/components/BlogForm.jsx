@@ -99,3 +99,11 @@ return (
           onChange={(e) => setBlogData({ ...blogData, createdAt: e.target.value })}
         />
       </div>
+      <div>
+        <label>Category:</label>
+        <input
+          type="text"
+          value={blogData.category}
+          onChange={(e) => setBlogData({ ...blogData, category: e.target.value })}
+        />
+      </div>
