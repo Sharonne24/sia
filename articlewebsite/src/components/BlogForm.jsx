@@ -53,3 +53,12 @@ const handleBlogUpload = async () => {
           category: '',
           authorName: '',
         });
+    });
+    setImageFile(null);
+    setError('');
+  }
+} catch (error) {
+  console.error('Error uploading blog:', error);
+  setError('An unexpected error occurred. Please try again.');
+}
+};
