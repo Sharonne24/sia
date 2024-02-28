@@ -84,3 +84,10 @@ return (
         <button onClick={handleImageUpload}>Upload Image</button>
         {blogData.imageUrl && <button onClick={handleImageDelete}>Delete Image</button>}
       </div>
+      <div>
+        <label>Content:</label>
+        <textarea
+          value={blogData.content}
+          onChange={(e) => setBlogData({ ...blogData, content: e.target.value })}
+        />
+      </div>
