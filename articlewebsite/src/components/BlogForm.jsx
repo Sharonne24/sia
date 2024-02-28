@@ -73,3 +73,14 @@ return (
           onChange={(e) => setBlogData({ ...blogData, title: e.target.value })}
         />
       </div>
+      <div>
+        <label>Image URL:</label>
+        <input
+          type="text"
+          value={blogData.imageUrl}
+          onChange={(e) => setBlogData({ ...blogData, imageUrl: e.target.value })}
+        />
+        <input type="file" onChange={(e) => setImageFile(e.target.files[0])} />
+        <button onClick={handleImageUpload}>Upload Image</button>
+        {blogData.imageUrl && <button onClick={handleImageDelete}>Delete Image</button>}
+      </div>
