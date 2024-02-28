@@ -62,3 +62,14 @@ const handleBlogUpload = async () => {
   setError('An unexpected error occurred. Please try again.');
 }
 };
+return (
+    <div>
+      <h2>Blog Form</h2>
+      <div>
+        <label>Title:</label>
+        <input
+          type="text"
+          value={blogData.title}
+          onChange={(e) => setBlogData({ ...blogData, title: e.target.value })}
+        />
+      </div>
