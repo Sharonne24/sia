@@ -19,3 +19,8 @@ const BlogForm = () => {
       const { data, error } = await supabase.storage.from('blog-images').upload('blog-image.png', imageFile, {
         cacheControl: '3600', // Set cache control for the image (in seconds)
       });
+      if (error) {
+        setError('Failed to upload image. Please try again.');
+      } else {
+        // Set the imageUrl in the blogData after successful image upload
+        setBlogData({ ...blogData, imageUrl: data[0].url });
