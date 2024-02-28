@@ -6,3 +6,21 @@ const BlogDetail = () => {
   const { postId } = useParams(); // blog post id from supabase
   const [blogDetails, setBlogDetails] = useState(null);
   const [error, setError] = useState('');
+
+  useEffect(() => {
+    // Fetch the details of the specific blog post using Supabase ID
+    const fetchBlogDetails = async () => {
+      try {
+        const { data, error } = await supabase.from('blogs').select().eq('id', postId);
+
+        if (error) {
+          setError('Failed to fetch blog details. Please try again.');
+        } else {
+          // Set the blog details in the local state
+          setBlogDetails(data[0]);
+        }
+      } catch (error) {
+        console.error('Error fetching blog details:', error);
+        setError('An unexpected error occurred. Please try again.');
+      }
+    };
