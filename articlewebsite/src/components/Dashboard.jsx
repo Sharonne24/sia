@@ -20,7 +20,6 @@ const Dashboard = () => {
         <h3>Website Traffic</h3>
         <p>Total Visitors: {websiteTraffic}</p>
       </div>
-      {/* Other dashboard content */}
     </div>
   );
 };
