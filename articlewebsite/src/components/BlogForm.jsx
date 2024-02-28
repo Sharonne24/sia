@@ -36,3 +36,20 @@ const handleImageDelete = async () => {
 // You might need to store the image metadata in the database for proper deletion
 setBlogData({ ...blogData, imageUrl: '' });
 };
+const handleBlogUpload = async () => {
+    try {
+      // Use Supabase client to insert a new blog into the database
+      const { data, error } = await supabase.from('blogs').insert([blogData]);
+
+      if (error) {
+        setError('Failed to upload blog. Please try again.');
+      } else {
+        // Clear form fields after successful blog upload
+        setBlogData({
+          title: '',
+          imageUrl: '',
+          content: '',
+          createdAt: '',
+          category: '',
+          authorName: '',
+        });
