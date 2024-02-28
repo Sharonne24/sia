@@ -24,3 +24,27 @@ const BlogDetail = () => {
         setError('An unexpected error occurred. Please try again.');
       }
     };
+    fetchBlogDetails();
+  }, [postId]);
+
+  // Render the blog details
+  return (
+    <div>
+      {blogDetails ? (
+        <>
+          <h2>{blogDetails.title}</h2>
+          <img src={blogDetails.imageUrl} alt={blogDetails.title} />
+          <p>{blogDetails.content}</p>
+          <p>Created At: {blogDetails.createdAt}</p>
+          <p>Category: {blogDetails.category}</p>
+          <p>Author: {blogDetails.authorName}</p>
+        </>
+      ) : (
+        <p>Loading...</p>
+      )}
+      {error && <p style={{ color: 'red' }}>{error}</p>}
+    </div>
+  );
+};
+
+export default BlogDetail;
