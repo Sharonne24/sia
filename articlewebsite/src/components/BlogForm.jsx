@@ -91,3 +91,11 @@ return (
           onChange={(e) => setBlogData({ ...blogData, content: e.target.value })}
         />
       </div>
+      <div>
+        <label>Created At (dd/mm/yy):</label>
+        <input
+          type="text"
+          value={blogData.createdAt}
+          onChange={(e) => setBlogData({ ...blogData, createdAt: e.target.value })}
+        />
+      </div>
